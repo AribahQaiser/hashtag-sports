@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* brand colors: constant in both themes, never flipped */
+  --color-crimson-600: #a3182e;
+  --color-crimson-500: #c81e3a;
+  --color-crimson-400: #e0334c;
+  --color-gold-500: #c9a24b;
+  --color-gold-400: #ddbd73;
+
+  /* soft section tokens: About and Contact, always light, in both themes */
+  --color-ink-950: #0d0d0d;
+  --color-bone-50: #f7f5ef;
+  --color-bone-100: #efece2;
+
+  /* structural chrome tokens: Navbar, Hero, Gallery, Footer. These flip
+     between themes, everything else above stays put. */
+  --color-deep: #0d0d0d;
+  --color-deep-alt: #1a1a1a;
+  --color-on-deep: #f7f5ef;
+}
+
+:root {
+  --dot-color: rgba(247, 245, 239, 0.15);
+}
+
+:root[data-theme="light"] {
+  --color-deep: #fbfaf7;
+  --color-deep-alt: #efece4;
+  --color-on-deep: #14120f;
+  --dot-color: rgba(13, 13, 13, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-deep);
+  color: var(--color-on-deep);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.theme-transition,
+.theme-transition * {
+  transition: background-color 260ms ease, color 260ms ease, border-color 260ms ease;
+}
+
+/* subtle texture used behind the hero and dark sections */
+.turf-lines {
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(201, 162, 75, 0.05) 0px,
+    rgba(201, 162, 75, 0.05) 2px,
+    transparent 2px,
+    transparent 46px
+  );
+}
